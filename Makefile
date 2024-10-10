@@ -14,6 +14,8 @@ SRCS =  get_next_line.c\
 		main.c\
 		map_read.c\
 		set_param.c\
+		key.c\
+		move.c\
 
 
 OBJS = $(SRCS:.c=.o)

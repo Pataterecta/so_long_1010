@@ -81,14 +81,13 @@ int			check_empty_line(t_param *par);
 int			check_all_ones(char *str);
 int			check_one_boundaries(char *str);
 void		howmanylines(t_param *par);
+//drawmap.c
+int	drawmap(t_param *data);
+void	draw_img(char a, t_param *par, int x, int y);
 // map_read.c
 int			add_lines(t_param *par);
-// void error_message(const char *message);
 // ft_split.c
 size_t		ft_strlcpy(char *dst, const char *src, size_t len);
-// static size_t	get_word_cnt(char const *str, char c);
-// static void	*is_free(char **str, int str_index);
-// static char	**set_worddup(char const *s, char c, char **mem);
 char		**ft_split(char const *s, char c);
 // image.c
 void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
@@ -101,6 +100,10 @@ void	move_left(t_param *par, int y);  // 왼쪽으로 이동
 void	move_right(t_param *par, int y); // 오른쪽으로 이동
 void	move_up(t_param *par, int y);    // 위로 이동하는 함수
 void		move_down(t_param *par, int y);
+//key
+
+int	map_red_exit();
+int	map_esc();
 // gnl
 char		*get_next_line(int fd);
 char		*ft_get_backup(char *backup);

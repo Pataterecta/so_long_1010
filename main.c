@@ -1,5 +1,6 @@
 #include "so_long.h"
 
+
 int	main(void)
 {
 	t_param par;
@@ -10,6 +11,7 @@ int	main(void)
 		perror("파일 열기 실패");
 		return (1);
 	}
+	set_param(&par);
 	if (add_lines(&par) == 2)
 	{
 		close(par.fd);
@@ -38,11 +40,14 @@ int	main(void)
 		return (1);
 	}
 	par.win = mlx_new_window(par.mlx, par.win_width, par.win_height, "So_long");
+	drawmap(&par);
 	if (!par.win)
 	{
 		error_message("mlx_new_window() 실패");
 		return (1);
 	}
+	mlx_key_hook(par.win, &key_press, &par);
+	mlx_hook(par.win, PRESS_RED_BUTTON, 0, &map_red_exit, &par);
 	mlx_loop(par.mlx);
 	return (0);
 }
